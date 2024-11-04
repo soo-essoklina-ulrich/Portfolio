@@ -1,16 +1,172 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Button from "../components/Button.astro";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SkillCard from "../components/SkillCard.astro";
+import Title from "../components/Title.astro";
+import SubTitle from '../components/SubTitle.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="SOO E.  | Portfolio">
+	<header><Navbar /></header>
+		<main>
+			<section class="about">
+				<img src='dragon.png' alt='profile picture'/>
+				<article>
+					<p>Salut 👋 je suis <i>SOO ESSOKLINA ULRICH</i> </p>
+					<Title text='Software Developer'/>
+				<SubTitle text='Web Developer' />
+				</article>
+				<Button message='Latest Posts' icon='/external-link.svg' link='#'/>
+			</section>
+			<section class="skills">
+				<Title text=' Competances & Technologie '/>
+				<section>
+					<SkillCard 
+						title='Developement Frontend'
+						description='Developement des interfaces utilisateurs avec Angular, Vue.js'
+						icon='/design.svg'
+					/>
+					<SkillCard 
+						title='Backend Development'
+						description=' Developement des API REST avec Node.js, Java, PHP'
+						icon='/server.svg'
+					/>
+					<SkillCard 
+						title='Databases'
+						description='Base de Donnée SQL comme MySQL et NoSQL comme MongoDB'
+						icon='/database.svg'
+					/>
+				</section>
+			</section>
+			<section class="work">
+				<Title text='Mes Traveaux'/>
+				<section>
+					<ProjectCard 
+					title='SkillCo #1'
+					description='Ceci est un projet de proffessionnel Edutiant.'
+					link='#'
+					
+					/>
+					<ProjectCard 
+						title='SPRING-SECU #2'
+						description="Ceci est un projet dans le but d'apprendre la securité avec Spring boot ."
+						link='https://github.com/soo-essoklina-ulrich/springsecu.git'
+						
+					/>
+					<ProjectCard 
+						title='API MESURE #3'
+						description='API fait avec Node.js et Express.js couple avec TypeScript  dans le but donner tout les mesures  connus.'
+						link='https://github.com/soo-essoklina-ulrich/API_UniteDeMesure.git'
+						
+					/>
+				</section>
+				
+			</section>
+			<section class="contact">
+				<Title text=' Envoie un message pour un collaboration '/>
+				<Button message='Send Message' icon='/email.svg' link='mailto:sessoklinaulrich@gmail.com'/>
+			</section>
+		</main>
+		<Footer />
+</Layout>
+
+<style>
+	main {
+		margin: 50px auto 0 auto;
+		max-width: 1020px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 100px;
+	}
+
+	.about {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 40px;
+		width: 100%;
+		height: calc(100vh - 50px);
+		text-align: center;
+		border-bottom: 1px solid rgb(30, 30, 30, 0.3);
+		padding: 0 20px;
+	}
+
+	.about > img {
+		width: 150px;
+		border-radius: 9999px;
+		object-fit: cover;
+	}
+
+	.about > article {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.about > article > p {
+		color: #1e1e1e;
+		font-style: italic;
+	}
+
+	.skills {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+		width: 100%;
+		align-items: center;
+		border-bottom: 1px solid rgba(30, 30, 30, 0.3);
+		padding: 0px 20px 100px 20px;
+	}
+
+	.skills > section {
+		display: flex;
+		gap: 40px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.work {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+		width: 100%;
+		align-items: center;
+		border-bottom: 1px solid rgb(30, 30, 30, 0.3);
+		padding: 0px 20px 100px 20px;
+	}
+	
+	.work > section {
+		display: flex;
+		gap: 40px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.contact {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 50px;
+		width: 100%;
+		padding: 0px 20px 100px 20px;
+	}
+
+	@media screen and (max-width: 700px) {
+		main {
+			margin: 0 auto;
+		}
+
+		.about {
+			height: 80vh;
+		}
+
+		.about > img {
+			width: 100px;
+		}
+	}
+</style>
